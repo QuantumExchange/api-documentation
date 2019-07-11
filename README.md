@@ -106,11 +106,11 @@ All private REST request should contain the following HTTP Headers.
 
   `GET`
 
-### Place Limit Order
+### Place New Order
 
 * **URL** 
   
-  /v1/create_limit_order
+  /v1/order/new
 
 * **Method:**
 
@@ -122,54 +122,16 @@ All private REST request should contain the following HTTP Headers.
 
 * **Data Params**
 
-  { "action" : "buy" ; "amount" : 14.2; "asset" : "btc"; "currency" : "cad"; "price" : 9009.24 }
+  { "action" : "BUY" ; "amount" : 14.2; "asset" : "ETH"; "currency" : "USDT"; "price" : 9009.24; "type" : "LIMIT" }
 
   ### Required fields.
 
-  **action** : Buy or Sell  
+  **action** : BUY | SELL 
   **amount** : Amount.  
   **asset** : Asset.  
-  **currency** : Currency (CAD).  
+  **currency** : Currency.  
   **price** : Limit price  
-
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** 
-   ```
-   {
-      "id":"xxxxxx"
-   }
-   ``` 
-
-* **Response fields**
-
-  **Id** : Order ID (Guid). 
-
-### Place Market Order
-
-* **URL** 
-  
-  /v1/create_market_order
-
-* **Method:**
-
-  `POST`
-  
-* **Authentication:**
-
-  *Required*
-
-* **Data Params**
-
-  { "action" : "buy" ; "amount" : 14.2; "asset" : "btc"; "currency" : "cad" }
-
-  ### Required fields.
-
-  **action** : Buy or Sell
-  **amount** : Amount.  
-  **asset** : Asset.
-  **currency** : Currency (CAD).  
+  **type** : LIMIT | MARKET
 
 * **Success Response:**
 
@@ -189,7 +151,7 @@ All private REST request should contain the following HTTP Headers.
 
 * **URL** 
   
-  /v1/cancel_order
+  /v1/order/cancel
 
 * **Method:**
 
@@ -220,6 +182,42 @@ All private REST request should contain the following HTTP Headers.
 * **Response fields**
 
   **success** : boolean
+  
+### Cancel Order
+
+* **URL** 
+  
+  /v1/order/cancel/all
+
+* **Method:**
+
+  `POST`
+  
+* **Authentication:**
+
+  *Required*
+
+* **Data Params**
+
+  { "asset" : "BTC"; currency: "USDT"  }
+
+  ### Required fields.
+
+  **id** : ID of order to cancel
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+   ```
+   {
+      "success":"true"
+   }
+   ``` 
+
+* **Response fields**
+
+  **success** : boolean  
 
 ### Withdraw Crypto
 
@@ -239,7 +237,7 @@ All private REST request should contain the following HTTP Headers.
   
   { 
     "amount" : 45.0,
-    "asset"  : "ada"
+    "asset"  : "ADA"
   }
 
   ### Required fields.
@@ -279,7 +277,7 @@ All private REST request should contain the following HTTP Headers.
 
   { 
     "amount" : 120000.0,
-    "currency"  : "cad"
+    "currency"  : "CAD"
   }
 
   ### Required fields.
