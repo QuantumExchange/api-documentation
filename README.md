@@ -4,7 +4,7 @@
 
   `https://api.quantum.exchange`
 
-All API requests should use the "application/json" content type, and must be encrypted with SSL (https).
+All API requests should use the "application/json" content type.
 
 ## HTTP return codes
 
