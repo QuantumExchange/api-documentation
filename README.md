@@ -126,7 +126,7 @@ All private REST request should contain the following HTTP Headers.
 
   ### Required fields.
 
-  **action** : BUY | SELL 
+  **action** : BUY | SELL   
   **amount** : Amount.  
   **asset** : Asset.  
   **currency** : Currency.  
