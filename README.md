@@ -132,6 +132,7 @@ All private REST request should contain the following HTTP Headers.
   **currency** : Currency.  
   **price** : Limit price  
   **type** : LIMIT | MARKET
+  **options** : Array of options "fill-or-kill", "market-or-cancel", "inmediate-or-cancel"
 
 * **Success Response:**
 
