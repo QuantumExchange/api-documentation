@@ -28,9 +28,9 @@ All API requests should use the "application/json" content type.
 
 ## Order Options
 
-- "fill-or-kill" : Order should complete fully inmediately or cancel. Will not add liquidity to the order book.
-- "make-or-cancel" : If any part of this order could be fullfilled the order will cancel. This order only adds liquidity to the order book. Only applies to limit orders. (Likw Poloniex "postOnly")
-- "inmediate-or-cancel" : Any portion not filled will be canceled. Will not add liquidity to the order book.
+- *fill-or-kill* : Order should complete fully immediately or cancel. Will not add liquidity to the order book.
+- *make-or-cancel* : If any part of this order could be fullfilled the order will cancel. This order only adds liquidity to the order book. Only applies to limit orders. (Like Poloniex's "postOnly")
+- *inmediate-or-cancel* : Any portion not filled will be canceled. Will not add liquidity to the order book.
 
 ## Public endpoints
 
