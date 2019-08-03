@@ -26,6 +26,12 @@ All API requests should use the "application/json" content type.
 - LIMIT
 - MARKET
 
+## Order Options
+
+- "fill-or-kill" : Order should complete fully inmediately or cancel. Will not add liquidity to the order book.
+- "make-or-cancel" : If any part of this order could be fullfilled the order will cancel. This order only adds liquidity to the order book. Only applies to limit orders. (Likw Poloniex "postOnly")
+- "inmediate-or-cancel" : Any portion not filled will be canceled. Will not add liquidity to the order book.
+
 ## Public endpoints
 
 ### Get Order Book
@@ -132,7 +138,7 @@ All private REST request should contain the following HTTP Headers.
   **currency** : Currency.  
   **price** : Limit price  
   **type** : LIMIT | MARKET  
-  **options** : Array of options "fill-or-kill", "market-or-cancel", "inmediate-or-cancel"
+  **options** : Array of options "fill-or-kill", "make-or-cancel", "inmediate-or-cancel"
 
 * **Success Response:**
 
