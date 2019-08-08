@@ -230,7 +230,7 @@ All private REST request should contain the following HTTP Headers.
 
 * **URL** 
   
-  /v1/crypto/withdraw
+  /v1/withdraw
 
 * **Method:**
 
@@ -266,46 +266,7 @@ All private REST request should contain the following HTTP Headers.
 
   **success** : boolean  
 
-### Withdraw Fiat
-
-* **URL** 
-  
-  /v1/fiat/withdraw
-
-* **Method:**
-
-  `POST`
-  
-* **Authentication:**
-
-  *Required*
-
-* **Data Params**
-
-  { 
-    "amount" : 120000.0,
-    "currency"  : "CAD"
-  }
-
-  ### Required fields.
-
-  **amount** : Amount of fiat  
-  **currency** : Currency  
-
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** 
-   ```
-   {
-      "success":"true"
-   }
-   ``` 
-
-* **Response fields**
-
-  **success** : boolean
-  
+ 
 ## Websocket Stream
   
   * **URL**
