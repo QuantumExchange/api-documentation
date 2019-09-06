@@ -6,6 +6,10 @@
 
 All API requests should use the "application/json" content type.
 
+## Endpoint limits
+
+Maximum six (6) requests per second. The endpoint will answer with status code 429.
+
 ## HTTP return codes
 
 - 200 Success
