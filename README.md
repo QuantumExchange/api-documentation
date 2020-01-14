@@ -67,7 +67,7 @@ Maximum six (6) requests per second. When exceeded the endpoint will answer with
     "filled": 0,
     "price": 8726.37760913,
     "status": "open"
-    },
+    }
   ],
   "asks":[],
   "timestamp":"2019-01-14 22:11:55"
