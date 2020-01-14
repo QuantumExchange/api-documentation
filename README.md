@@ -56,11 +56,23 @@ Maximum six (6) requests per second. When exceeded the endpoint will answer with
 
   * **Code:** 200 <br />
     **Content:** 
-   ```json
-   {
-      "Id":"xxxxx"
-   }
-   ``` 
+```json
+{
+  "asset":"eth",
+  "currency:"dai",
+  "bids":[
+     {
+    "id": "a63b160e-8b37-4255-8ea0-4b3fbf7cbb87",
+    "amount": 0.18897671,
+    "filled": 0,
+    "price": 8726.37760913,
+    "status": "open"
+    },
+  ],
+  "asks":[],
+  "timestamp":"2019-01-14 22:11:55"
+}
+```  
 
 * **Response fields**
 
