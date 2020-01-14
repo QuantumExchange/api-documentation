@@ -29,6 +29,10 @@ Maximum six (6) requests per second. When exceeded the endpoint will answer with
 
 - LIMIT
 - MARKET
+- STOP-LOSS-LIMIT
+- STOP-LOSS-MARKET
+- TAKE-PROFIT-LIMIT
+- TAKE-PROFIT-MARKET
 
 ## Order Options
 
