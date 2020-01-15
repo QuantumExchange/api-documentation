@@ -76,7 +76,11 @@ Maximum six (6) requests per second. When exceeded the endpoint will answer with
 
 * **Response fields**
 
-  **Id** : Order ID (Guid).  
+  **asset** : Asset symbol 
+  **currency** : Currency symbol
+  **bids** : Array of bid orders
+  **asks** : Array of ask orders
+  **timestamp** : Timestamp
 
 ## Private endpoints
 
@@ -116,13 +120,15 @@ All private REST request should contain the following HTTP Headers.
 
 * **URL** 
   
-  /v1/orders/open
+  /v1/orders/{asset}/{currency}/open
 
 * **Method:**
 
   `GET`
 
 ### Lookup Order
+
+Orders are transient and only exist in the order book. As soon as an order is closed or completed this call will return 404
 
 * **URL** 
    
@@ -210,7 +216,7 @@ All private REST request should contain the following HTTP Headers.
 
   **success** : boolean
   
-### Cancel Order
+### Cancel All Orders
 
 * **URL** 
   
