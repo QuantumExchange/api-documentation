@@ -76,11 +76,11 @@ Maximum six (6) requests per second. When exceeded the endpoint will answer with
 
 * **Response fields**
 
-  **asset** : Asset symbol 
-  **currency** : Currency symbol
-  **bids** : Array of bid orders
-  **asks** : Array of ask orders
-  **timestamp** : Timestamp
+  **asset** : Asset symbol  
+  **currency** : Currency symbol  
+  **bids** : Array of bid orders  
+  **asks** : Array of ask orders  
+  **timestamp** : Timestamp  
 
 ## Private endpoints
 
