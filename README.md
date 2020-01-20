@@ -20,7 +20,6 @@ Maximum six (6) requests per second. When exceeded the endpoint will answer with
 
 - PENDING
 - OPEN
-- PARTIAL
 - COMPLETED
 - CANCELLED
 - REJECTED
@@ -65,8 +64,7 @@ Maximum six (6) requests per second. When exceeded the endpoint will answer with
     "id": "a63b160e-8b37-4255-8ea0-4b3fbf7cbb87",
     "amount": 0.18897671,
     "filled": 0,
-    "price": 8726.37760913,
-    "status": "open"
+    "price": 8726.37760913
     }
   ],
   "asks":[],
@@ -106,17 +104,20 @@ All private REST request should contain the following HTTP Headers.
     **Content:** 
    ```
    {
-     { "id": "cad", "balance":20000.0 },
-     { "id": "btc", "balance":21.17839 },
-     { "id": "ltc", "balance":100.05 }
+     { "id": "btc", "balance": { "total" : 21.0000000, "available" : 19.0000000 } },
+     { "id": "bch", "balance": { "total" : 600.0000000, "available" : 600.00000000 } },
+     { "id": "eth", "balance": { "total" : 100.0000000, "available" : 100.0000000 } }
    }
    ```  
 
 * **Response fields**
 
-  **Id** : Order ID (Guid).  
+  **id** : Asset symbol.  
+  **balance** : Dictionary containing total and available balance. Available equals the total minus the amount placed on trading orders.
   
 ### Get Open Orders
+
+Get open orders returns an array containing the orders with status open.
 
 * **URL** 
   
@@ -125,18 +126,15 @@ All private REST request should contain the following HTTP Headers.
 * **Method:**
 
   `GET`
+  
+* **Success Response:**
 
-### Lookup Order
+  * **Code:** 200 <br />
+    **Content:** 
+   ```
+   [ {"id":"bafa8e52-8592-4ed6-b79a-5f937148ec12","action":"buy","amount":1.66134784,"filled":0.0,"price":8657.20671787}
+    ,{"id":"be3b4449-a5d4-4de1-9f80-3a0aa116e69b","action":"buy","amount":0.83112433,"filled":0.0,"price":8656.85507901}, ... ]
 
-Orders are transient and only exist in the order book. As soon as an order is closed or completed this call will return 404
-
-* **URL** 
-   
-  /v1/orders/{orderId}
-
-* **Method:**
-
-  `GET`
 
 ### Place New Order
 
@@ -163,6 +161,7 @@ Orders are transient and only exist in the order book. As soon as an order is cl
   **asset** : Asset.  
   **currency** : Currency.  
   **price** : Limit price  
+  **stop_price** : Stop price   
   **type** : "limit" | "market" | "stop-loss-limit" | "stop-loss-market" | "take-profit-limit" | "take-profit-market"  
   **options** : Array of options "fill-or-kill", "make-or-cancel", "inmediate-or-cancel"
 
@@ -196,7 +195,7 @@ Orders are transient and only exist in the order book. As soon as an order is cl
 
 * **Data Params**
 
-  { "id" : "xxxxxxx"  }
+  { "id" : "xxxxxxx"; "asset" : "eth"; "currency" : "usdt"  }
 
   ### Required fields.
 
@@ -232,7 +231,7 @@ Orders are transient and only exist in the order book. As soon as an order is cl
 
 * **Data Params**
 
-  { "asset" : "BTC"; currency: "USDT"  }
+  { "asset" : "btc"; currency: "usdt" }
 
   ### Required fields.
 
